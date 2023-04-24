@@ -18,9 +18,16 @@ int _printf(const char *format, ...)
 	unsigned int i;
 
 	va_start(args, format);
+<<<<<<< HEAD
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return -1;
 	while (*format) {
+=======
+	if (format == NULL)
+		return (-1);
+	while (*format)
+	{
+>>>>>>> parent of 7673574... 7 returns
 		if (*format == '%')
 		{
 			format++;
