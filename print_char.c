@@ -11,8 +11,7 @@ int print_char(va_list args)
 
 	if (c == ' ')
 		return (-1);
-	if (c == '\0')
-		return (1);
+
 	_putchar(c);
 	return (1);
 }
