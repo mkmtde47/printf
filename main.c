@@ -2,10 +2,18 @@
 #include <stdio.h>
 
 int main() {
-    char *str1 = NULL;
-    char *str2 = "";
-    _printf("Printing a null pointer: %s\n", str1);
-    _printf("Printing an empty string: %s\n", str2);
+    printf("Should return -1: %d\n", _printf(NULL));
+
+   printf("Should return 0: %d\n", _printf(""));
+
+    printf("Should print 'Printing an unknown specifier: %z\n' and return 36: ");
+    _printf("Printing an unknown specifier: %z\n");
+
+    printf("Should print 'Printing a percent sign: %\n' and return 29: ");
+    _printf("Printing a percent sign: %%\n");
+
+    printf("Should print 'hello\\nworld' and return 11: ");
+    _printf("hello\nworld");
+
     return 0;
 }
-
