@@ -8,45 +8,44 @@
 
 int _printf(const char *format, ...)
 {
-	Formatter formatters[] = {
-		{'c', print_char},
-		{'s', print_string},
-		{'%', print_default}
-	};
 	va_list args;
 	int count = 0;
-	unsigned int i;
 
 	va_start(args, format);
-<<<<<<< HEAD
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-		return -1;
-	while (*format) {
-=======
 	if (format == NULL)
 		return (-1);
-	while (*format)
+	while (format && *format)
 	{
->>>>>>> parent of 7673574... 7 returns
 		if (*format == '%')
 		{
 			format++;
-			for (i = 0; i < sizeof(formatters) / sizeof(Formatter); i++)
+			if (*format == 'c')
 			{
-				if (formatters[i].specifier == *format)
-				{
-					count += formatters[i].handler(args);
-					break;
-				}
+				count += print_char(args);
+			}
+			else if (*format == 's')
+			{
+				count += print_string(args);
+			}
+			else if (*format == '%')
+			{
+				_putchar('%');
+				count++;
+			}
+			else
+			{
+				_putchar('%');
+				_putchar(*format);
+				count += 2;
 			}
 		}
 		else
 		{
-			putchar(*format);
+			_putchar(*format);
 			count++;
 		}
 		format++;
 	}
 	va_end(args);
-	return count;
+	return (count);
 }
