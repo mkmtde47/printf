@@ -13,7 +13,7 @@ int print_string(va_list args)
 
 	if (str == NULL)
 	{
-		/*_printf((null));*/
+		_printf("(null)");
 		return (6);
 	}
 	while (*str)
