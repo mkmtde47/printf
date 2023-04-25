@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			count += switch_specifier(format, count, args);
+			count += switch_specifier(format, args);
 		}
 		else
 		{

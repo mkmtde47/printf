@@ -3,12 +3,13 @@
 /**
   * switch_specifier - A function to switch case
   * @spec: Pointer to a char
-  * @count: Index
   * @args: Pointer to a variadic function
   * Return: Count
   */
-int switch_specifier(const char *spec, int count, va_list args)
+int switch_specifier(const char *spec, va_list args)
 {
+	int count = 0;
+
 	switch (*spec)
 	{
 		case 'c':

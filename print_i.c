@@ -9,13 +9,9 @@
 int _print_i(va_list args, int count)
 {
 	int num;
-	int j;
-	int temp;
 	char *str;
 
 	num = va_arg(args, int);
-	temp = 0;
-	j = 0;
 	str = malloc(sizeof(int));
 	if (str == NULL)
 	{
@@ -27,14 +23,32 @@ int _print_i(va_list args, int count)
 		num = -1 * num;
 		_putchar('-');
 	}
-	while (num != 0)
+	if (num / 10)
 	{
-		temp = num % 10;
-		num = num / 10;
-		*(str + j) = temp + '0';
-		j++;
+		count += shift_int(num / 10);
 	}
-	print_rev(str);
-	free(str);
+	_putchar(num % 10 + '0');
+	count++;
+	/*print_rev(str);
+	free(str);*/
+	return (count);
+}
+
+/**
+ * shift_int - Recursion function
+ * @number: integer
+ * Return: Count
+ */
+int shift_int(int number)
+{
+	int count;
+
+	count = 0;
+	if (number / 10)
+	{
+		count += shift_int(number / 10);
+	}
+	_putchar(number % 10 + '0');
+	count++;
 	return (count);
 }
