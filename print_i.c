@@ -29,8 +29,6 @@ int _print_i(va_list args, int count)
 	}
 	_putchar(num % 10 + '0');
 	count++;
-	/*print_rev(str);
-	free(str);*/
 	return (count);
 }
 
